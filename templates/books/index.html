@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+  <!-- <div class="book">
+    <div class="content">
+        <div class="title"></div> -->
+        {% for book in all_books %}
+        <h3>Book Title: {{book.title}}</h3>
+          <ul>
+            <li>Genre: {{book.genre}}</li>
+            <li>Publisher: {{book.publisher}}. publisher </li>
+            <li>Author:{{book.author.first_name}} {{book.author.last_name}}</li>
+        </ul>
+      
+          <div class="buttons">
+
+            <form class="delete-form" action="/books/{{book.id}}/delete" method="POST">
+              <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
+            </form>
+  
+
+        </div>
+    <!-- </div>
+  </div>
+</div> -->
+  
+  {% endfor %}
+
+{% endblock %}

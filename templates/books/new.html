@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<form action="/books" method="post">
+    <div>
+        <label for="title"> Title:</label>
+        <input type="text"  id="title" name="title" placeholder="title" required autofocus>
+    </div>
+    
+    <div>
+        <label for="genre"> Genre:</label>
+        <input type="text" id="genre" name="genre" placeholder="genre" required>
+    </div>
+
+    <div>
+        <label for="publisher">Publisher:</label>
+        <input type="text" id="publisher" name="publisher" placeholder="publisher" required>
+    </div>
+
+    <div>
+        <label for="author">Author:</label>
+        <select id="author" name="author_id">
+            {% for author in all_authors %}
+              <option value="{{ author.id }}">{{ author.full_name() }}</option>
+            {% endfor %}
+          </select>
+    </div>
+
+      <button type="submit">Add Book</button>
+
+</form>
+
+{% endblock %} 
